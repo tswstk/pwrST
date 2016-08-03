@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 
 public class RestAdapter {
 
-    public static final String BASE_URL = "https://fcm.googleapis.com/fcm/";
+    public static final String BASE_URL = "https://test-1a137.firebaseio.com/";    //Mozliwe ze to nie ten address co trzeba
     private final RestApi mApiManager;
 
     public RestAdapter() {
@@ -38,7 +38,7 @@ public class RestAdapter {
     }
 
     public interface RestApi {
-        @Headers("Authorization: key=AIzaSyAGQsEOkpkcyLy0r_oZtW51QJ2bGPJSp2Y")
+        @Headers("Authorization: key=AIzaSyAGQsEOkpkcyLy0r_oZtW51QJ2bGPJSp2Y")   //bankowo dobry
         @POST("send")
         Call<Void> sendPush(@Body FCMMessage message);
         ///
