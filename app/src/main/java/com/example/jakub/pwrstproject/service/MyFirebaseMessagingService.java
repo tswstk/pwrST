@@ -34,16 +34,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Intent replyIntent = new Intent(this, BackgroundSending.class);
         replyIntent.putExtra(Constants.USER_TARGET,remoteMessage.getData().get("username"));
-        PendingIntent replyHodor = PendingIntent.getService(this, 1, replyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent replyPause = PendingIntent.getService(this, 1, replyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //Uri sound = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.jeszczeNieWiemAleBędzie);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.ic_notification)
+                        .setSmallIcon(R.drawable.ic_error_outline_black_24dp)
                         .setContentTitle("PAUZA")
                         .setContentText(remoteMessage.getData().get("username"))
-                        .addAction(R.drawable.ic_call_missed_outgoing_black_24dp, "POTWIERDŹ", replyHodor)
+                        .addAction(R.drawable.ic_call_missed_outgoing_black_24dp, "POTWIERDŹ", replyPause)
                         //.setSound(sound)
                         .setContentIntent(intent);
 
